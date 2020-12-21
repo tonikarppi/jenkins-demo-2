@@ -1,5 +1,5 @@
 /* Requires the Docker Pipeline plugin */
-node('docker') {
+node {
     checkout scm
     stage('Build') {
         docker.image('golang').inside {
