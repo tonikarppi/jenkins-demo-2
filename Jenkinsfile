@@ -1,6 +1,6 @@
 node('!windows') {
     withEnv(['DISABLE_AUTH=true',
-             'DB_ENGINE=sqlite']) {
+             'DB_ENGINE=postgres']) {
         stage('Build') {
             echo "Database engine is ${DB_ENGINE}"
             echo "DISABLE_AUTH is ${DISABLE_AUTH}"
