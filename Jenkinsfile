@@ -1,10 +1,9 @@
-pipeline {
-    agent { docker { image 'node:14-alpine' } }
-    stages {
-        stage('build') {
-            steps {
-                sh 'npm --version'
-            }
+/* Requires the Docker Pipeline plugin */
+node('docker') {
+    checkout scm
+    stage('Build') {
+        docker.image('golang').inside {
+            sh 'go version'
         }
     }
 }
