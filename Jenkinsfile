@@ -1,7 +1,6 @@
 node {
-    checkout scm
     stage('Build') {
-        sh 'echo "Hello World from scripted pipeline"'
+        sh 'echo "foo"'
         sh '''
             echo "Multiline shell steps works too"
             ls -lah
