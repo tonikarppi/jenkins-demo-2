@@ -4,6 +4,7 @@ node {
     stage('Build') {
         docker.image('golang').inside {
             sh 'go version'
+            sh 'ls -la'
         }
     }
 }
