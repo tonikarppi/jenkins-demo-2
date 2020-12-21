@@ -1,10 +1,28 @@
-node('!windows') {
-    withEnv(['DISABLE_AUTH=true',
-             'DB_ENGINE=postgres']) {
-        stage('Build') {
-            echo "Database engine is ${DB_ENGINE}"
-            echo "DISABLE_AUTH is ${DISABLE_AUTH}"
-            sh 'printenv'
+pipeline {
+    agent any
+    stages {
+        stage('No-op') {
+            steps {
+                sh 'ls'
+            }
+        }
+    }
+    post {
+        always {
+            echo 'One way or another, I have finished'
+            deleteDir() /* clean up our workspace */
+        }
+        success {
+            echo 'I succeeded!'
+        }
+        unstable {
+            echo 'I am unstable :/'
+        }
+        failure {
+            echo 'I failed :('
+        }
+        changed {
+            echo 'Things were different before...'
         }
     }
 }
