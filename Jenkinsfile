@@ -1,9 +1,9 @@
 pipeline {
-    agent { docker { image 'node:14-alpine' } }
+    agent { docker { image 'ruby' } }
     stages {
         stage('build') {
             steps {
-                sh 'npm --version'
+                sh 'ruby --version'
             }
         }
     }
