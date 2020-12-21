@@ -1,4 +1,5 @@
 node {
+    checkout scm
     stage('Build') {
         sh 'echo "Hello World from scripted pipeline"'
         sh '''
